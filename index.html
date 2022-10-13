@@ -1,0 +1,112 @@
+<html>
+
+<head>
+    <title>Mobs do Minecraft</title>
+</head>
+
+<body>
+    <section id="minecraft_mobs" style="background-color:rgb(122, 218, 122);">
+        <center>
+            <h1>Mobs do Minecraft!!!</h1>
+            <br>
+            <p>Veja os mobs do <b>Minecraft!</b></p>
+            <br>
+            <br>
+            <img src="logo Minecraft.png">
+            <br>
+            <br>
+            <br>
+            <hr>
+            <h1>Mobs: <h2 id="select_mob"></h2>
+            </h1>
+            <br>
+            <br>
+            <button onclick="selectmob()" style="background-color:rgb(126, 209, 49);border-radius: 10px;">escolher
+                mob</button>
+            <br>
+            <hr>
+        </center>
+        <br>
+        <br>
+        <br>
+        <br>
+        <img src="minecraft_ground.jpg" height="25%" width="100%">
+    </section>
+    <section id="test_area">
+        <button onclick="dev()">Hide Development</button>
+        <hr style="border-color:red;">
+        <p>declarando um Array de mobs:
+        <h4 id="declarar_mobs"></h4>
+        </p>
+        <hr>
+        <p>Primeiro mob:
+        <h4 id="first"></h4>
+        </p>
+        <hr>
+        <p>Segundo mob:
+        <h4 id="second"></h4>
+        </p>
+        <hr>
+        <p>Terceiro mob:
+        <h4 id="third"></h4>
+        </p>
+        <hr>
+        <p>Quarto mob:
+        <h4 id="fourth"></h4>
+        </p>
+        <hr>
+        <h5>Quantidade de mobs <h4 id="quantidade_mob"></h4>
+        </h5>
+        <hr>
+        <br>
+        <hr>
+        <h3>Mobs na Vertical:</h3>
+        <p id="mob_vertical"></p>
+        <h3>Adicionando Elementos</h3>
+        <input id="new_mob">
+        <button onclick="adicionar()">Add Mob</button>
+        <p id="add_mob"></p>
+    </section>
+    <script>
+        var mobs = ["creeper", "enderman", "esqueleto", "zumbi"];
+        console.log(mobs);
+        document.getElementById("declarar_mobs").innerHTML = mobs;
+        //buscando o 1° elemento
+        document.getElementById("first").innerHTML = mobs[0];
+        //buscando o 2° elemento
+        document.getElementById("second").innerHTML = mobs[1];
+        //buscando o 3° elemento
+        document.getElementById("third").innerHTML = mobs[2];
+        //buscando o 4° elemento
+        document.getElementById("fourth").innerHTML = mobs[3];
+        //quantidade do array
+        document.getElementById("quantidade_mob").innerHTML = mobs.length;
+        //loop for
+        var elemento;
+        var aux = "";
+        var comprimento = mobs.length;
+        for (var i = 0; i < comprimento; i++) {
+            elemento = mobs[i];
+            console.log(elemento);
+            aux = aux + "<p>" + elemento + "</p>";
+        }
+        document.getElementById("mob_vertical").innerHTML = aux;
+        function adicionar() {
+            mobs.push(String(document.getElementById("new_mob").value));
+            document.getElementById("add_mob").innerHTML = mobs;
+        }
+        var selected_mob = 0;
+        function selectmob() {
+            document.getElementById("select_mob").innerHTML = mobs[selected_mob];
+            selected_mob = selected_mob + 1;
+            if (selected_mob == mobs.length) {
+                selected_mob = 0
+            }
+        }
+        function dev() {
+            document.getElementById("test_area").hidden = true;
+        }
+    </script>
+</body>
+
+</html>
